@@ -45,7 +45,7 @@ const TestimonialSection = () => {
           <div
             className="testimonial mx-3 p-3 rounded shadow"
             style={{
-              backgroundColor: "#FCCB68", // Testimonial box color
+              backgroundColor: "#FCCB68",
               padding: "20px",
               border: "1px solid #ddd",
               minWidth: "300px",

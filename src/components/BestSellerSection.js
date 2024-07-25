@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaStar } from "react-icons/fa"; // Importing react-icons for star icons
+import { FaStar } from "react-icons/fa"; 
 
 const BestSellerSection = () => {
   return (
@@ -8,8 +8,7 @@ const BestSellerSection = () => {
       className="best-seller-section py-5 text-center"
       style={{
         backgroundColor: "#ff9800",
-        backgroundImage: "url('images/ripe-tasty-strawberries-yellow-background.jpg')", // Add your background image URL here
-        backgroundSize: "cover",
+        backgroundImage: "url('images/ripe-tasty-strawberries-yellow-background.jpg')", 
         backgroundPosition: "center",
         padding: "40px",
         textAlign: "center",
@@ -26,7 +25,7 @@ const BestSellerSection = () => {
             color: "#070707",
             fontWeight: "bold",
             padding: "15px",
-            fontSize: "2rem", // Increased font size
+            fontSize: "2rem", 
           }}
         >
           Best Seller
@@ -43,11 +42,11 @@ const BestSellerSection = () => {
                   src={`images/litchi-removebg-preview.png`}
                   alt={product.flavor}
                   style={{
-                    width: "200px", // Increased the size of the image
+                    width: "200px", 
                     height: "200px",
                     objectFit: "contain",
                     position: "absolute",
-                    top: "-50px", // Adjusted position to move it closer to the card
+                    top: "-50px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     zIndex: "1",
@@ -56,7 +55,7 @@ const BestSellerSection = () => {
                 <div
                   style={{
                     position: "absolute",
-                    top: "180px", // Adjusted shadow position
+                    top: "180px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     width: "120px",
@@ -76,7 +75,7 @@ const BestSellerSection = () => {
                     {[...Array(5)].map((star, i) => (
                       <FaStar
                         key={i}
-                        color={i < Math.floor(product.rating) ? "#ffc107" : "#e4e5e9"} // Adjust rating dynamically
+                        color={i < Math.floor(product.rating) ? "#ffc107" : "#e4e5e9"}
                       />
                     ))}
                     <span style={{ marginLeft: "8px", fontSize: "1.2rem" }}>({product.reviews} reviews)</span>
@@ -91,7 +90,7 @@ const BestSellerSection = () => {
                       cursor: "pointer",
                       borderRadius: "25px",
                       marginTop: "10px",
-                      fontSize: "1.2rem", // Increased font size
+                      fontSize: "1.2rem", 
                     }}
                   >
                     Order Now

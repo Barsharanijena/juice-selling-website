@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaStar } from "react-icons/fa"; 
+import { FaStar } from "react-icons/fa";
 
 const ProductSection = () => {
   return (
@@ -9,7 +9,7 @@ const ProductSection = () => {
       className="product-section py-5"
       style={{
         backgroundColor: "#FCCB68",
-        backgroundImage: "url('images/extreme-close-up-orange-fruit.jpg')", 
+        backgroundImage: "url('images/extreme-close-up-orange-fruit.jpg')",
         padding: "20px",
         marginTop: "20px",
         position: "relative",
@@ -27,21 +27,39 @@ const ProductSection = () => {
             padding: "10px",
           }}
         >
-          Our Product
+          Our Products
         </h2>
-        <div className="row justify-content-center">
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            right: "10px",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            color: "#fff",
+            fontWeight: "bold",
+            padding: "10px",
+            border: "2px solid white",
+            borderRadius: "5px",
+          }}
+        >
+          See our products &gt;
+        </div>
+        <div
+          className="row justify-content-center"
+          style={{ marginTop: "90px", paddingTop:"30px" }} 
+        >
           {["Mango", "Litchi", "Apple", "Guava"].map((flavor, index) => (
             <div className="col-md-3 mb-4" key={index}>
               <div className="position-relative mb-4">
                 <img
-                  src={`images/litchi-removebg-preview.png`} // Use the same image for all products
+                  src={`images/litchi-removebg-preview.png`} 
                   alt={flavor}
                   style={{
-                    width: "150px", // Increased the size of the image
+                    width: "150px", 
                     height: "150px",
                     objectFit: "contain",
                     position: "absolute",
-                    top: "-25px", // Adjusted position to move it closer to the card
+                    top: "-65px", 
                     left: "50%",
                     transform: "translateX(-50%)",
                     zIndex: "1",
@@ -50,7 +68,7 @@ const ProductSection = () => {
                 <div
                   style={{
                     position: "absolute",
-                    top: "130px", // Adjusted shadow position
+                    top: "130px", 
                     left: "50%",
                     transform: "translateX(-50%)",
                     width: "100px",
@@ -68,7 +86,7 @@ const ProductSection = () => {
                     {[...Array(5)].map((star, i) => (
                       <FaStar
                         key={i}
-                        color={i < (index + 3) ? "#ffc107" : "#e4e5e9"} // Adjust rating dynamically
+                        color={i < (index + 3) ? "#ffc107" : "#e4e5e9"} 
                       />
                     ))}
                     <span style={{ marginLeft: "8px" }}>({(index + 3) * 20} reviews)</span>
