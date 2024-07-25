@@ -1,8 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #f9f9f9;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -32,13 +31,25 @@ body {
 .navbar-links a {
   color: rgb(0, 0, 0);
   text-decoration: none;
+  padding: 40px;
 }
+
 
 .navbar-actions {
   display: flex;
   align-items: center;
 }
-
+.navbar-links a:after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: transparent; 
+  position: absolute;
+  bottom: -5px;  
+  left: 0;
+  right: 0;
+  transition: background 0.3s ease;
+}
 .navbar-cart {
   height: 30px;
   margin-right: 20px;
@@ -79,7 +90,7 @@ body {
   font-size: 24px;
   color: red;
   font-weight: bold;
-  margin-top: -120px 
+  margin-top: -140px 
 }
 
 .order-section {
@@ -93,11 +104,11 @@ body {
 }
 
 .bottle-image {
-  margin-top: -100px ;
+  margin-top: -70px ;
   
   width: 100px;
   height: auto;
-
+  margin-left: -10px;
 }
 
 .delivery-box {
@@ -105,12 +116,14 @@ body {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  margin-top: -100px ;
+  margin-top: -60px ;
+  margin-left: -100px;
 
 }
 
 .delivery-box p {
   margin: 5px 0;
+  
 }
 
 
@@ -129,6 +142,9 @@ body {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
@@ -143,12 +159,29 @@ body {
 
 .discount {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #ff9800;
+  top: 10px;
+  left: 60px;
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
+  background-color: #ff9800; /* The background color of the star */
   color: #fff;
-  padding: 5px 10px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 90px; /* Adjust to vertically center text */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); /* Star shape */
 }
+
 
 .product-section{
   margin-top: 20px;
@@ -160,6 +193,32 @@ body {
   margin-left: -1000px;
   padding: 10px;
   background-color: #fcc0c0;
+}
+.product-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded edges */
+  margin-top: 10px;
+}
+
+.product-card button:hover {
+  background-color: #45a049;
+}
+.order-now {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded edges */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.order-now:hover {
+  background-color: #e68a00;
 }
 .benefits-section, .contact-section {
   padding: 20px;
@@ -183,34 +242,33 @@ body {
 }
 .testimonial-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
   padding: 20px;
-}
-
-.section-title {
-  align-self: flex-start;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 20px;
 }
 
 .testimonial {
-  text-align: center;
-  max-width: 600px; 
-  border: 1px solid #ff9800; 
+  margin: 0 20px;
   padding: 20px;
+  background: #f9f9f9;
   border-radius: 8px;
-  background-color: #ff9800;
+  max-width: 600px;
 }
 
-.testimonial p {
-  font-style: italic;
-  margin-bottom: 60px;
+.navigation-arrows {
+  display: flex;
+  
+  width: 0px; /* Adjust width to fit your arrows */
 }
 
-.testimonial h3 {
-  margin: 0;
+.navigation-arrows button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
 }
 
 
@@ -232,6 +290,8 @@ body {
 
 .product-card img {
   width: 100%;
+  position: relative; /* Add relative positioning */
+  z-index: 1; 
 }
 
 .benefits-list {
@@ -254,52 +314,141 @@ body {
   border: 1px solid #ddd;
   display: inline-block;
 }
+.testimonial-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.testimonial-heading {
+  font-size: 24px;
+  top: 0;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation-arrows {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.navigation-arrows button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin: 0;
+}
+
+.testimonial h3 {
+  margin-top: 10px;
+  font-weight: normal;
+  color: #555;
+}
 
 .contact-section {
   background-color: #f9f9f9;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+.contact-section h1 {
+  background-color: #f9f9f9;
+  margin-left: -620px;
+  color: #e68a00;
+  
+}
+.contact-section h2 {
+  background-color: #f9f9f9;
+  margin-left: -570px;
+  color: #020202;
+  
+}
+.contact-and-offer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.contact-column {
+  flex: 2; /* Make contact column wider */
+}
+
+.offer-column {
+  flex: 2; /* Make offer column narrower */
+}
+
+.contact-section, .offer-box {
+  padding: 15px;
+  width: 350%;
+  
 }
 
 .contact-form input, .contact-form textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.contact-form button {
-  padding: 0.75rem;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #45a049;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .offer-box {
-  background-color: yellow;
-  padding: 2rem;
-  border-radius: 8px;
+  background-color: orange; /* Set the background color to orange */
+  color: white; /* Set the text color to white for better contrast */
+  border: 1px solid #ddd;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: 20px; 
+  margin-bottom: 10%;
+  padding: 20px; 
+  bottom: 20px;
+  border-radius: 10px;
 }
 
 .offer-box h3 {
   margin-top: 0;
 }
+.button-contact{
+  background-color: orange; 
+  color: white;
+  border-radius: 5px; 
+  cursor: pointer; 
+  width: 20%;
+}
+.orange-button {
+  background-color: orange; 
+  color: black;
+  border: none; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border-radius: 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+  width: 50%;
+  margin-left: 100px; 
+  margin-right: auto;
+  margin-top: 20px; 
+  padding: 20px; 
+}
 
+.orange-button:hover {
+  background-color: darkorange; /* Darker shade of orange on hover */
+}
 .footer {
   background-color: #ff9800;
   padding: 20px;
@@ -344,33 +493,66 @@ body {
   border-top: 1px solid #fff;
   padding-top: 10px;
 }
+
 .grid-and-details {
-  display: flex;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .image-grid {
-  display: grid;
-  /* Grid template columns will be defined based on your desired number of columns */
-  grid-template-columns: repeat(3, 1fr); /* Example for 3 columns */
-  grid-gap: 20px; /* Adjust spacing as needed */
+  display: contents;
 }
 
-.image-grid img {
-  width: 100%;
-  height: auto;
+.grid-item-1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-item-2,
+.grid-item-3 {
+  grid-column: 2 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-item-2 {
+  grid-row: 1 / span 1;
+}
+
+.grid-item-3 {
+  grid-row: 2 / span 1;
 }
 
 .details-box {
-  flex: 1;
+  border: 5px dotted #ff9800;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
   padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.image-grid img,
+.details-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 
 /* Contact Form Specific Styles */
 .contact-form-container {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -423,4 +605,253 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 20px;
+}
+
+.grid-and-details {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start; /* Align items to the start of the grid cells */
+}
+
+.image-grid {
+  display: contents; /* Use contents to make individual grid items behave properly */
+}
+
+.grid-item-1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.grid-item-2 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.grid-item-3 {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.details-box {
+
+  border: 5px dotted #ff9800;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid img,
+.details-box {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Ensure images cover the space nicely */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-section {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 20px;
+  }
+
+  .best-seller-section h2 {
+    margin-right: 0;
+  }
+
+  .product-section h2 {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .product-list {
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+  .benefits-list {
+    flex-wrap: wrap;
+  }
+
+  .benefit-card {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .grid-item {
+    grid-column: auto; /* Reset column span */
+    grid-row: auto; /* Reset row span */
+  }
+
+  .discount {
+    
+    position: static;
+    margin-top: 10px;
+  }
+
+  .order-section {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .bottle-image {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .delivery-box {
+    margin-top: 0;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .benefits-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefit-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .testimonial {
+    padding: 10px;
+  }
+
+  .testimonial h3 {
+    font-size: 1.2rem;
+  }
+
+  .testimonial p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.25rem;
+  }
+
+  .contact-form button {
+    padding: 0.5rem;
+  }
+
+  .offer-box {
+    padding: 1rem;
+  }
+
+  .footer-sections {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+
+  .benefits-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefit-card {
+    width: 90%;
+  }
 }
